@@ -20,18 +20,27 @@ $result = $conn->query($sql);
 </head>
 <body>
    
-   <table>
+   <table border=1>
    
  
 
     <thead>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Data Cadastro</th>
+    <th></th>
+    <th></th>
     
-
     </thead>
-
+<?php while($dados = $result->fetch_assoc()){?>
     <tbody>
+    <td><?php echo $dados['ID_BANDAS']?></td>
     
+    <td><?php echo "<a href='http://projPHP/projeto-php/alterar.php'>Alterar</a> "; ?></td>
+    <td><?php echo "<a href='http://projPHP/projeto-php/excluir.php'>Excluir</a> "; ?></td>
     </tbody>
+
+<?php  } ?>
     </table>
 </body>
 
