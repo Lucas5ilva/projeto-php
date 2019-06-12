@@ -2,7 +2,7 @@
 <?php
 include_once 'conn.php';
 
-$sql= "SELECT * FROM Bandas";
+$sql= "SELECT * FROM BANDAS";
 $result = $conn->query($sql);
 
 
@@ -32,12 +32,18 @@ $result = $conn->query($sql);
     <th></th>
     
     </thead>
-<?php while($dados = $result->fetch_assoc()){?>
-    <tbody>
-    <td><?php echo $dados['ID_BANDAS']?></td>
-    
-    <td><?php echo "<a href='http://projPHP/projeto-php/alterar.php'>Alterar</a> "; ?></td>
-    <td><?php echo "<a href='http://projPHP/projeto-php/excluir.php'>Excluir</a> "; ?></td>
+<?php while($dados = $result->fetch_assoc()) {  
+        $id= $dados['ID_BANDAS'];
+
+
+        
+    ?> 
+       <tbody>
+    <td><?php echo $dados['ID_BANDAS'];?></td>
+    <td><?php echo $dados['NOME_BANDAS'];?></td>
+    <td><?php echo $dados['DATA_CADASTRO'];?></td>
+    <td><?php echo "<a href='http://localhost/projPHP/projeto-php/alterar.php?id=$id'>Alterar</a> "; ?></td>
+    <td><?php echo "<a href='http://localhost/projPHP/projeto-php/excluir.php?id=$id'>Excluir</a> "; ?></td>
     </tbody>
 
 <?php  } ?>
